@@ -1,0 +1,80 @@
+RESET
+* {
+    box-sizing: border-box;
+}
+
+/* FULL BACKGROUND */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* CARD */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 2.5rem;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+    animation: slideFade 0.6s ease forwards;
+}
+
+/* ANIMATION */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* INPUTS */
+.form-control:focus {
+    box-shadow: none;
+    border-color: #6f42c1;
+}
+
+.input-group-text {
+    background: transparent;
+    border-right: 0;
+}
+
+/* BUTTON */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* VALIDATION SHAKE */
+.invalid-feedback {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}

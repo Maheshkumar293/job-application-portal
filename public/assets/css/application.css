@@ -1,0 +1,453 @@
+/* logout */
+a.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+/* ======================
+   GLOBAL
+====================== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ======================
+   CARD
+====================== */
+.app-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+    animation: fadeSlide 0.6s ease;
+}
+
+/* ======================
+   ANIMATIONS
+====================== */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ======================
+   STEPS
+====================== */
+.step {
+    display: none;
+    animation: stepFade 0.4s ease;
+}
+
+.step.active {
+    display: block;
+}
+
+@keyframes stepFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   STEPPER (PREMIUM)
+========================= */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #bbb;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-circle {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(118, 75, 162, 0.15);
+}
+
+.step-item.completed .step-circle {
+    background: #28c76f;
+    color: #fff;
+}
+
+.step-item.completed .step-circle::after {
+    content: "✓";
+    font-size: 18px;
+}
+
+.step-line {
+    width: 50px;
+    height: 3px;
+    background: #ddd;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.step-line.completed {
+    background: #28c76f;
+}
+
+
+/* ANIMATION */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.35);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(118, 75, 162, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0);
+    }
+}
+
+/* ======================
+   FORM CONTROLS
+====================== */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: #764ba2;
+}
+
+/* ======================
+   VALIDATION
+====================== */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.is-invalid.shake {
+    animation: shake 0.35s;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+.btn {
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================
+   QUALIFICATION BLOCK
+====================== */
+.qualification {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.qualification .remove {
+    border-radius: 50%;
+    padding: 0 10px;
+}
+
+/* ======================
+   TOAST
+====================== */
+.toast-container {
+    z-index: 9999;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 768px) {
+    .app-card {
+        padding: 1.75rem;
+    }
+
+    .step-indicator span {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================
+   SUCCESS POP – PREMIUM
+========================== */
+.success-pop-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.55);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.4s ease;
+}
+
+.success-pop {
+    position: relative;
+    width: 420px;
+    background: linear-gradient(135deg, #18c29c, #0fa47a);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+    animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+}
+
+/* Glow Ring */
+.success-ring {
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    top: -30%;
+    left: -30%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.25),
+            transparent 60%);
+    animation: rotateGlow 6s linear infinite;
+}
+
+/* Icon */
+.success-icon {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 800;
+    animation: iconPop 0.5s ease-out;
+}
+
+/* Text */
+.success-pop h3 {
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.3px;
+}
+
+.success-msg {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    margin-bottom: 0.4rem;
+}
+
+.email-msg {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 1.6rem;
+}
+
+/* Button */
+.success-btn {
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 50px;
+    background: #fff;
+    color: #12a97e;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.success-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* EXIT */
+.success-pop-overlay.hide {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateX(60px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes toastOut {
+    to {
+        opacity: 0;
+        transform: translateX(60px) scale(0.9);
+    }
+}
+
+@keyframes popIcon {
+    0% {
+        transform: scale(0.5);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes glowMove {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
