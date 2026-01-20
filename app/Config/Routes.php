@@ -47,6 +47,7 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
 
     // Resume view (secure)
     $routes->get('resume/(:any)', 'Admin::viewResume/$1');
+
 });
 
 
@@ -64,3 +65,5 @@ $routes->group('api', function ($routes) {
 // Utilities
 // ----------------------------------------------------
 $routes->get('test-db', 'TestDB::index');
+// Add this line anywhere OUTSIDE admin group
+$routes->get('seed-admin', 'SeedAdmin::index');

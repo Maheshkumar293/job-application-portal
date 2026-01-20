@@ -1,0 +1,626 @@
+DEBUG - 2026-01-20 02:30:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:30:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:30:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:31:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:32:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:33:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:34:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:34:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:43:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 02:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 04:59:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 04:59:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 04:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 04:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:00:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:00:48 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:00:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:00:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885248_9c9a2b622a14655f7a74.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885248_9c9a2b622a14655f7a74.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:00:48 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885248_9c9a2b622a14655f7a74.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885248_9c9a2b622a14655f7a74.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885248_9c9a2b622a14655f7a74.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:04:06 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:04:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:04:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885446_68728d0749fd18006902.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885446_68728d0749fd18006902.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:04:06 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885446_68728d0749fd18006902.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885446_68728d0749fd18006902.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768885446_68728d0749fd18006902.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:14:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:14:36 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:14:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:14:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886076_bc17be5aa966ed21e9d5.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886076_bc17be5aa966ed21e9d5.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:14:36 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886076_bc17be5aa966ed21e9d5.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886076_bc17be5aa966ed21e9d5.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886076_bc17be5aa966ed21e9d5.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:14:39 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:14:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:14:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886079_7a84288e53118129b751.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886079_7a84288e53118129b751.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:14:39 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886079_7a84288e53118129b751.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886079_7a84288e53118129b751.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886079_7a84288e53118129b751.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:14:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:15:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:15:18 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:15:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:15:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886118_8f8f796cf8b23ae318e8.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886118_8f8f796cf8b23ae318e8.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:15:18 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886118_8f8f796cf8b23ae318e8.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886118_8f8f796cf8b23ae318e8.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'17\', \'amutha\', \'amuthaayyanan2004@gmail.com\', \'08778977606\', \'2025-12-28\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768886118_8f8f796cf8b23ae318e8.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:18:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:37:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:37:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:38:27 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(62): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:38:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:38:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887506_1559060732d2115bc293.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887506_1559060732d2115bc293.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:38:27 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887506_1559060732d2115bc293.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887506_1559060732d2115bc293.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887506_1559060732d2115bc293.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(62): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:45:25 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(72): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:45:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:45:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887925_3d6cf4923a8581e2c5bb.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887925_3d6cf4923a8581e2c5bb.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:45:25 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887925_3d6cf4923a8581e2c5bb.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887925_3d6cf4923a8581e2c5bb.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'fdsdf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887925_3d6cf4923a8581e2c5bb.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:45:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:45:56 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(72): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:45:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:45:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'asdfasf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887956_b9d86d6f2f8403c54208.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'asdfasf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887956_b9d86d6f2f8403c54208.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:45:56 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'asdfasf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887956_b9d86d6f2f8403c54208.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'asdfasf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887956_b9d86d6f2f8403c54208.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'asdfasf\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768887956_b9d86d6f2f8403c54208.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:54:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:54:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:56:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-01-20 05:56:10 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE) in C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\jobs_portal\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\jobs_portal\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\jobs_portal\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 C:\xampp\htdocs\jobs_portal\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\jobs_portal\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\jobs_portal\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\jobs_portal\app\Controllers\Candidate.php(72): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+#9 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+#10 C:\xampp\htdocs\jobs_portal\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\jobs_portal\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\jobs_portal\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\jobs_portal\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-01-20 05:56:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+[Method: POST, Route: candidate/submit]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:56:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768888570_1cb33c3b53d8a72d4c25.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768888570_1cb33c3b53d8a72d4c25.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-20 05:56:10 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`job_application_portal`.`job_applications`, CONSTRAINT `fk_application_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768888570_1cb33c3b53d8a72d4c25.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768888570_1cb33c3b53d8a72d4c25.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (\'13\', \'Maheshkumar R\', \'r.mahesh2903@gmail.com\', \'08778977606\', \'2026-01-01\', \'Male\', \'Indian\', \'srivi\', \'Yes\', \'3\', \'Fresher\', \'asfd\', \'\', \'\', \'uploads/resumes/1768888570_1cb33c3b53d8a72d4c25.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications` (`user_id`, `full_name`, `email`, `mobile`, `dob`, `gender`, `nationality`, `address`, `relocate`, `experience`, `employment_status`, `previous_org`, `job_title`, `summary`, `resume_path`) VALUES (:user_id:, :full_name:, :email:, :mobile:, :dob:, :gender:, :nationality:, :address:, :relocate:, :experience:, :employment_status:, :previous_org:, :job_title:, :summary:, :resume_path:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Candidate.php(72): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Candidate->submit()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Candidate))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-01-20 05:59:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:59:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:59:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-01-20 05:59:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

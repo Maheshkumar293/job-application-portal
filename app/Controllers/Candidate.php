@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\JobApplicationModel;
 use App\Models\AcademicQualificationModel;
 use App\Models\CandidateSkillModel;
+use App\Models\RoleModel;
 
 class Candidate extends BaseController
 {
     public function apply()
     {
-        return view('candidate/apply');
+        $roles = (new RoleModel())->getActiveRoles();
+        return view('candidate/apply', compact('roles'));
     }
 
     public function submit()
@@ -28,7 +30,16 @@ class Candidate extends BaseController
             return redirect()->to('candidate/apply')
                 ->with('already_applied', true);
         }
+        // ✅ VALIDATE ROLE EXISTS (CRITICAL FIX)
+        $roleId = $this->request->getPost('role_id');
+        $roleModel = new RoleModel();
+        $validRole = $roleModel->find($roleId); // Check if role exists
 
+        if (!$validRole) {
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', ['role_id' => 'Invalid role selected']);
+        }
         // ✅ VALIDATION
         $rules = [
             'full_name' => 'required|min_length[3]',
@@ -40,6 +51,7 @@ class Candidate extends BaseController
             'relocate' => 'required',
             'experience' => 'required',
             'employment_status' => 'required',
+            'role_id' => 'required|is_not_unique[roles.id]', // Add this
             'resume' => 'uploaded[resume]|ext_in[resume,pdf,doc,docx]|max_size[resume,2048]'
         ];
 
@@ -59,6 +71,7 @@ class Candidate extends BaseController
         // =============================
         $appId = $appModel->insert([
             'user_id' => $userId,
+            'role_id' => $roleId, // Now guaranteed valid (1-6)
             'full_name' => $this->request->getPost('full_name'),
             'email' => $this->request->getPost('email'),
             'mobile' => $this->request->getPost('mobile'),

@@ -21,6 +21,30 @@ CREATE TABLE users (
 ) ENGINE=InnoDB;
 
 -- =====================================================
+-- ROLES (MASTER)
+-- =====================================================
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    role_name VARCHAR(150) NOT NULL UNIQUE,
+    status ENUM('active','inactive') DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+INSERT INTO roles (role_name) VALUES
+('Frontend Developer'),
+('Backend Developer'),
+('Full Stack Developer'),
+('QA Engineer'),
+('HR Executive'),
+('Data Analyst');
+
+ALTER TABLE job_applications
+ADD CONSTRAINT fk_application_role
+FOREIGN KEY (role_id)
+REFERENCES roles(id)
+ON DELETE RESTRICT;
+
+-- =====================================================
 -- JOB APPLICATIONS (1 per Candidate)
 -- =====================================================
 CREATE TABLE job_applications (

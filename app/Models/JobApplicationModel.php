@@ -11,6 +11,7 @@ class JobApplicationModel extends Model
 
     protected $allowedFields = [
         'user_id',
+        'role_id',
         'full_name',
         'email',
         'mobile',
