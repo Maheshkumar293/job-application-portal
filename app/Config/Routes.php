@@ -47,6 +47,10 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
 
     // Resume view (secure)
     $routes->get('resume/(:any)', 'Admin::viewResume/$1');
+     // 🔥 ROLES ROUTES
+    $routes->get('roles', 'Admin::roles');           // ← GET for page
+    $routes->post('roles/create', 'Admin::createRole');  // POST create
+    $routes->post('roles/toggle', 'Admin::toggleRole');  // POST toggle
 
 });
 

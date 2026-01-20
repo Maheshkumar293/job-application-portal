@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\JobApplicationModel;
 use App\Models\CandidateSkillModel;
 use App\Models\AcademicQualificationModel;
-
+use App\Models\RoleModel;
 class Admin extends BaseController
 {
     public function index()
@@ -95,16 +95,94 @@ class Admin extends BaseController
     /* =========================
        MODAL DETAILS
     ========================= */
+    /* =========================
+   MODAL DETAILS (WITH ROLE)
+========================= */
     public function candidateDetails($id)
     {
+        $appModel = new JobApplicationModel();
+        $skillModel = new CandidateSkillModel();
+        $eduModel = new AcademicQualificationModel();
+
+        // 🔹 Get application + role
+        $app = $appModel
+            ->select('job_applications.*, roles.role_name')
+            ->join('roles', 'roles.id = job_applications.role_id', 'left')
+            ->where('job_applications.id', $id)
+            ->first();
+
+        if (!$app) {
+            return $this->response->setJSON(['error' => 'Not found']);
+        }
+
         return $this->response->setJSON([
-            'skills' => (new CandidateSkillModel())
-                ->where('application_id', $id)->findAll(),
-            'edu' => (new AcademicQualificationModel())
-                ->where('application_id', $id)->findAll()
+            'role' => $app['role_name'], // ✅ APPLIED ROLE
+            'skills' => $skillModel->where('application_id', $id)->findAll(),
+            'edu' => $eduModel->where('application_id', $id)->findAll()
         ]);
     }
 
+    /* =========================
+   ROLE MANAGEMENT
+========================= */
+    public function roles()
+    {
+        $roles = (new RoleModel())->orderBy('created_at', 'DESC')->findAll();
+        return view('admin/roles', compact('roles'));
+    }
+
+    public function createRole()
+    {
+        $name = trim($this->request->getPost('role_name'));
+
+        if (!$name) {
+            return redirect()->back()->with('error', 'Role name required');
+        }
+
+        $roleModel = new RoleModel();
+
+        // prevent duplicates
+        if ($roleModel->where('role_name', $name)->first()) {
+            return redirect()->back()->with('error', 'Role already exists');
+        }
+
+        $roleModel->insert([
+            'role_name' => $name,
+            'status' => 'active'
+        ]);
+
+        return redirect()->back()->with('success', 'Role added');
+    }
+
+    public function toggleRole()
+    {
+        $id = $this->request->getPost('id');
+
+        $roleModel = new RoleModel();
+        $role = $roleModel->find($id);
+
+        if (!$role) {
+            return $this->response->setJSON(['success' => false]);
+        }
+
+        // 🔒 prevent disabling role already used
+        $inUse = (new JobApplicationModel())
+            ->where('role_id', $id)
+            ->countAllResults();
+
+        if ($inUse && $role['status'] === 'active') {
+            return $this->response->setJSON([
+                'success' => false,
+                'msg' => 'Role already assigned to candidates'
+            ]);
+        }
+
+        $roleModel->update($id, [
+            'status' => $role['status'] === 'active' ? 'inactive' : 'active'
+        ]);
+
+        return $this->response->setJSON(['success' => true]);
+    }
     /* =========================
        RESUME VIEW
     ========================= */
