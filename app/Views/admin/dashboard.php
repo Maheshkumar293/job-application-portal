@@ -19,6 +19,9 @@
             </div>
 
             <div class="d-flex gap-2">
+                <a href="<?= base_url('admin/staffs') ?>" class="btn btn-outline-warning btn-sm">
+                    👥 Staff Management
+                </a>
                 <a href="<?= base_url('admin/roles') ?>" class="btn btn-outline-info btn-sm">
                     ⚙️ Manage Roles
                 </a>

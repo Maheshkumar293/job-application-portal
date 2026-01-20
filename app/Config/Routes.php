@@ -47,10 +47,18 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
 
     // Resume view (secure)
     $routes->get('resume/(:any)', 'Admin::viewResume/$1');
-     // 🔥 ROLES ROUTES
+    // 🔥 ROLES ROUTES
     $routes->get('roles', 'Admin::roles');           // ← GET for page
     $routes->post('roles/create', 'Admin::createRole');  // POST create
     $routes->post('roles/toggle', 'Admin::toggleRole');  // POST toggle
+    // ----------------------------------------------------
+// STAFF MANAGEMENT (ADMIN ONLY)
+// ----------------------------------------------------
+    $routes->get('staffs', 'Staff::index');
+    $routes->post('staffs/create', 'Staff::create');
+    $routes->post('staffs/block/(:num)', 'Staff::block/$1');
+    $routes->post('staffs/unblock/(:num)', 'Staff::unblock/$1');
+
 
 });
 
