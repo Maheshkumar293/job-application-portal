@@ -16,12 +16,12 @@ class Auth extends BaseController
     public function store()
     {
         $rules = [
-            'name'     => 'required|min_length[3]',
-            'email'    => 'required|valid_email|is_unique[users.email]',
+            'name' => 'required|min_length[3]',
+            'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]'
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()
                 ->withInput()
                 ->with('errors', $this->validator->getErrors());
@@ -30,17 +30,17 @@ class Auth extends BaseController
         $userModel = new UserModel();
 
         $insert = $userModel->insert([
-            'name'          => trim($this->request->getPost('name')),
-            'email'         => strtolower(trim($this->request->getPost('email'))),
+            'name' => trim($this->request->getPost('name')),
+            'email' => strtolower(trim($this->request->getPost('email'))),
             'password_hash' => password_hash(
                 $this->request->getPost('password'),
                 PASSWORD_DEFAULT
             ),
-            'role'   => 'candidate',
+            'role' => 'candidate',
             'status' => 'active'
         ]);
 
-        if (! $insert) {
+        if (!$insert) {
             return redirect()->back()
                 ->withInput()
                 ->with('error', 'Database insert failed');
@@ -67,7 +67,7 @@ class Auth extends BaseController
             ->where('status', 'active')
             ->first();
 
-        if (! $user || ! password_verify($password, $user['password_hash'])) {
+        if (!$user || !password_verify($password, $user['password_hash'])) {
             return redirect()->back()
                 ->withInput()
                 ->with('error', 'Invalid email or password');
@@ -75,14 +75,17 @@ class Auth extends BaseController
 
         session()->set([
             'user_id' => $user['id'],
-            'role'    => $user['role']
+            'role' => $user['role']
         ]);
 
         return redirect()->to(
-            $user['role'] === 'admin'
-                ? base_url('admin/dashboard')
-                : base_url('candidate/apply')
+            match ($user['role']) {
+                'admin' => base_url('admin/dashboard'),
+                'staff' => base_url('staff/dashboard'),
+                default => base_url('candidate/apply'),
+            }
         );
+
     }
 
     /* ---------------- LOGOUT ---------------- */

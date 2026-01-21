@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pendingSelect.disabled = true;
 
       try {
-        const res = await fetch(`${BASE_URL}/admin/update-status`, {
+        const res = await fetch(`${BASE_URL}/update-status`, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: `${CSRF_NAME}=${CSRF_HASH}&id=${id}&status=${status}`,

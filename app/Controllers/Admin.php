@@ -2,10 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\ApplicationAssignmentModel;
 use App\Models\JobApplicationModel;
 use App\Models\CandidateSkillModel;
 use App\Models\AcademicQualificationModel;
 use App\Models\RoleModel;
+use App\Models\UserModel;
+use App\Models\ApplicationStatusLogModel;
+
 class Admin extends BaseController
 {
     public function index()
@@ -13,6 +17,23 @@ class Admin extends BaseController
         $req = $this->request;
         $appModel = new JobApplicationModel();
         $builder = $appModel->builder();
+
+        // 🔹 SELECT with STAFF ASSIGNMENT
+        $builder->select('job_applications.*, u.name AS staff_name, a.staff_id');
+
+        // 🔹 JOIN STAFF ASSIGNMENT TABLE
+        $builder->join(
+            'application_staff_assignments a',
+            'a.application_id = job_applications.id',
+            'left'
+        );
+
+        // 🔹 JOIN STAFF USER
+        $builder->join(
+            'users u',
+            'u.id = a.staff_id',
+            'left'
+        );
 
         // SEARCH
         if ($s = $req->getGet('search')) {
@@ -44,11 +65,19 @@ class Admin extends BaseController
             )->where('candidate_skills.skill', $req->getGet('skill'));
         }
 
-        $apps = $builder->orderBy('submitted_at', 'DESC')
+        $apps = $builder
+            ->orderBy('submitted_at', 'DESC')
             ->get()
-            ->getResult(); // OBJECTS
+            ->getResult();
 
-        // KPIs (CORRECT ENUM VALUES)
+        // 🔹 STAFF LIST (FOR DROPDOWN)
+        $staffs = (new UserModel())
+            ->where('role', 'staff')
+            ->where('status', 'active')
+            ->orderBy('name', 'ASC')
+            ->findAll();
+
+        // KPIs
         $stats = [
             'total' => $appModel->countAll(),
             'submitted' => $appModel->where('application_status', 'submitted')->countAllResults(),
@@ -58,12 +87,41 @@ class Admin extends BaseController
             'rejected' => $appModel->where('application_status', 'rejected')->countAllResults(),
         ];
 
-        return view('admin/dashboard', compact('apps', 'stats'));
+        return view('admin/dashboard', compact('apps', 'stats', 'staffs'));
     }
 
     /* =========================
-       INLINE STATUS UPDATE
+       ASSIGN STAFF TO APPLICATION
     ========================= */
+    public function assignStaff()
+    {
+        $appId = $this->request->getPost('application_id');
+        $staffId = $this->request->getPost('staff_id');
+
+        if (!$appId) {
+            return $this->response->setJSON(['success' => false]);
+        }
+
+        $assignModel = new ApplicationAssignmentModel();
+
+        // Remove old assignment
+        $assignModel->where('application_id', $appId)->delete();
+
+        // Assign new staff (if selected)
+        if ($staffId) {
+            $assignModel->insert([
+                'application_id' => $appId,
+                'staff_id' => $staffId,
+                'assigned_by' => session('user_id')
+            ]);
+        }
+
+        return $this->response->setJSON(['success' => true]);
+    }
+
+    /* =========================
+   INLINE STATUS UPDATE
+   ========================= */
     public function updateStatus()
     {
         $id = $this->request->getPost('id');
@@ -79,32 +137,62 @@ class Admin extends BaseController
             ]);
         }
 
+        /* =========================================
+           🔒 ROLE-BASED SECURITY (ADMIN + STAFF)
+        ========================================= */
+        if (session('role') === 'staff') {
+
+            $assigned = db_connect()
+                ->table('application_staff_assignments')
+                ->where('application_id', $id)
+                ->where('staff_id', session('user_id'))
+                ->countAllResults();
+
+            if (!$assigned) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'msg' => 'Unauthorized'
+                ]);
+            }
+        }
+        /* ========================================= */
+
+        // ✅ Update status
         $model->update($id, [
             'application_status' => $status
         ]);
 
-        $this->sendStatusMail($app['email'], $app['full_name'], $status);
+        db_connect()->table('application_status_logs')->insert([
+            'application_id' => $id,
+            'old_status' => $app['application_status'],
+            'new_status' => $status,
+            'changed_by' => session('user_id'),
+            'changed_by_role' => session('role')
+        ]);
+        
+        // 📧 Send email ONLY if admin updates
+        if (session('role') === 'admin') {
+            $this->sendStatusMail($app['email'], $app['full_name'], $status);
+        }
+
 
         return $this->response->setJSON([
             'success' => true,
             'csrf' => csrf_hash()
         ]);
+
     }
 
 
     /* =========================
        MODAL DETAILS
     ========================= */
-    /* =========================
-   MODAL DETAILS (WITH ROLE)
-========================= */
     public function candidateDetails($id)
     {
         $appModel = new JobApplicationModel();
         $skillModel = new CandidateSkillModel();
         $eduModel = new AcademicQualificationModel();
 
-        // 🔹 Get application + role
         $app = $appModel
             ->select('job_applications.*, roles.role_name')
             ->join('roles', 'roles.id = job_applications.role_id', 'left')
@@ -116,15 +204,15 @@ class Admin extends BaseController
         }
 
         return $this->response->setJSON([
-            'role' => $app['role_name'], // ✅ APPLIED ROLE
+            'role' => $app['role_name'],
             'skills' => $skillModel->where('application_id', $id)->findAll(),
             'edu' => $eduModel->where('application_id', $id)->findAll()
         ]);
     }
 
-/* =========================
-   ROLE MANAGEMENT
-========================= */
+    /* =========================
+       ROLE MANAGEMENT
+    ========================= */
     public function roles()
     {
         $roles = (new RoleModel())->orderBy('created_at', 'DESC')->findAll();
@@ -141,7 +229,6 @@ class Admin extends BaseController
 
         $roleModel = new RoleModel();
 
-        // prevent duplicates
         if ($roleModel->where('role_name', $name)->first()) {
             return redirect()->back()->with('error', 'Role already exists');
         }
@@ -165,7 +252,6 @@ class Admin extends BaseController
             return $this->response->setJSON(['success' => false]);
         }
 
-        // 🔒 prevent disabling role already used
         $inUse = (new JobApplicationModel())
             ->where('role_id', $id)
             ->countAllResults();
@@ -183,6 +269,7 @@ class Admin extends BaseController
 
         return $this->response->setJSON(['success' => true]);
     }
+
     /* =========================
        RESUME VIEW
     ========================= */
@@ -324,5 +411,27 @@ HTML;
         $mail->setMailType('html');
         $mail->send();
     }
+
+    // STATUS LOG HISTORY
+    public function statusHistory($id)
+    {
+        $rows = db_connect()
+            ->table('application_status_logs l')
+            ->select('l.old_status, l.new_status, u.name, l.changed_by_role as role, l.created_at')
+            ->join('users u', 'u.id = l.changed_by')
+            ->where('l.application_id', $id)
+            ->orderBy('l.created_at', 'DESC')
+            ->get()
+            ->getResultArray();
+
+        return $this->response->setJSON(array_map(fn($r) => [
+            'old_status' => ucfirst(str_replace('_', ' ', $r['old_status'])),
+            'new_status' => ucfirst(str_replace('_', ' ', $r['new_status'])),
+            'name' => $r['name'],
+            'role' => ucfirst($r['role']),
+            'time' => date('d M Y h:i A', strtotime($r['created_at']))
+        ], $rows));
+    }
+
 
 }

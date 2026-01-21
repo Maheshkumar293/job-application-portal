@@ -26,7 +26,7 @@
                     ⚙️ Manage Roles
                 </a>
 
-                <a href="<?= base_url('logout') ?>" class="btn btn-outline-light btn-sm">
+                <a href="<?= base_url('logout') ?>" class="btn btn-outline-grey btn-sm">
                     Logout
                 </a>
             </div>
@@ -109,6 +109,7 @@
                             <th>Resume</th>
                             <th>Details</th>
                             <th>Date</th>
+                            <th>Assigned Staff</th>
                         </tr>
                     </thead>
 
@@ -122,16 +123,21 @@
 
                                 <td><?= esc($app->mobile) ?></td>
 
-                                <td>
-                                    <select class="form-select form-select-sm status-select" data-id="<?= $app->id ?>">
+                                <td class="d-flex align-items-center gap-2">
+                                    <select class="form-select form-select-sm status-select" data-id="<?= $app->id ?>"
+                                        data-current="<?= $app->application_status ?>">
                                         <?php foreach (['submitted', 'under_review', 'shortlisted', 'selected', 'rejected'] as $s): ?>
                                             <option value="<?= $s ?>" <?= $app->application_status === $s ? 'selected' : '' ?>>
                                                 <?= ucfirst(str_replace('_', ' ', $s)) ?>
                                             </option>
                                         <?php endforeach ?>
                                     </select>
+                                    <!-- Status History Button -->
+                                    <button class="btn btn-sm btn-outline-secondary status-history"
+                                        data-id="<?= $app->id ?>" title="View Status History">
+                                        🕒
+                                    </button>
                                 </td>
-
                                 <td>
                                     <a target="_blank" href="<?= base_url('admin/resume/' . basename($app->resume_path)) ?>"
                                         class="btn btn-sm btn-outline-primary">
@@ -146,6 +152,19 @@
                                 </td>
 
                                 <td><?= date('d M Y', strtotime($app->submitted_at)) ?></td>
+                                <td>
+                                    <select class="form-select form-select-sm assign-staff" data-app="<?= $app->id ?>"
+                                        data-prev="<?= $app->staff_id ?? '' ?>">
+                                        <option value="">Unassigned</option>
+
+                                        <?php foreach ($staffs as $s): ?>
+                                            <option value="<?= $s['id'] ?>" <?= ($app->staff_id == $s['id']) ? 'selected' : '' ?>>
+                                                <?= esc($s['name']) ?>
+                                            </option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </td>
+
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -167,6 +186,106 @@
     </script>
 
     <script src="<?= base_url('public/assets/js/dashboard.js') ?>"></script>
+    <!-- STATUS HISTORY MODAL JS (unchanged) -->
+    <script>
+        document.querySelectorAll('.status-history').forEach(btn => {
+            btn.addEventListener('click', () => {
+
+                const appId = btn.dataset.id;
+
+                fetch(`<?= base_url('admin/status-history') ?>/${appId}`)
+                    .then(r => r.json())
+                    .then(rows => {
+
+                        const tbody = document.getElementById('statusHistoryBody');
+                        tbody.innerHTML = '';
+
+                        if (!rows.length) {
+                            tbody.innerHTML = `
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">
+                                No history available
+                            </td>
+                        </tr>`;
+                            return;
+                        }
+
+                        rows.forEach(r => {
+                            tbody.innerHTML += `
+                        <tr>
+                            <td>${r.old_status}</td>
+                            <td><strong>${r.new_status}</strong></td>
+                            <td>${r.name}</td>
+                            <td>${r.role}</td>
+                            <td>${r.time}</td>
+                        </tr>`;
+                        });
+                    });
+
+                new bootstrap.Modal(
+                    document.getElementById('statusHistoryModal')
+                ).show();
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.assign-staff').forEach(select => {
+
+            // Store initial value
+            select.dataset.prev = select.value;
+
+            select.addEventListener('change', function () {
+
+                const appId = this.dataset.app;
+                const staffId = this.value;
+                const prev = this.dataset.prev;
+
+                const staffName = this.options[this.selectedIndex]?.text || 'Unassigned';
+
+                // CONFIRMATION
+                const ok = confirm(
+                    staffId
+                        ? `Assign this application to "${staffName}"?`
+                        : `Remove staff assignment from this application?`
+                );
+
+                // ❌ Cancel → revert
+                if (!ok) {
+                    this.value = prev;
+                    return;
+                }
+
+                // ✅ Proceed → save
+                fetch('<?= base_url('admin/assign-staff') ?>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body:
+                        `application_id=${appId}` +
+                        `&staff_id=${staffId}` +
+                        `&<?= csrf_token() ?>=<?= csrf_hash() ?>`
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            // update prev value only on success
+                            this.dataset.prev = staffId;
+                        } else {
+                            alert('Assignment failed');
+                            this.value = prev;
+                        }
+                    })
+                    .catch(() => {
+                        alert('Network error');
+                        this.value = prev;
+                    });
+
+            });
+        });
+    </script>
+
 
 </body>
 

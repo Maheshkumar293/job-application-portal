@@ -1,0 +1,149 @@
+/* =========================
+   ROOT (PASTEL THEME)
+========================= */
+:root {
+  --bg-gradient: linear-gradient(135deg, #f8fafc, #eef2ff);
+
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-strong: rgba(255, 255, 255, 0.9);
+  --border: rgba(148, 163, 184, 0.25);
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+
+  --primary: #818cf8;   /* Indigo pastel */
+  --success: #6ee7b7;   /* Mint */
+  --warning: #fde68a;   /* Soft yellow */
+  --danger: #fda4af;    /* Rose */
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+  background: var(--bg-gradient);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+}
+
+/* =========================
+   HEADER
+========================= */
+h3 {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #312e81;
+}
+
+/* =========================
+   GLASS TABLE CARD
+========================= */
+.table {
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(101, 103, 235, 0.15);
+}
+
+/* =========================
+   TABLE HEAD
+========================= */
+.table thead th {
+  background: var(--glass-strong);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   TABLE BODY
+========================= */
+.table tbody td {
+  padding: 16px;
+  vertical-align: middle;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* =========================
+   ROW HOVER
+========================= */
+.table-hover tbody tr:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(129, 140, 248, 0.18),
+    rgba(224, 231, 255, 0.35)
+  );
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   STATUS DROPDOWN
+========================= */
+.staff-status {
+  background: rgba(255,255,255,0.9);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.staff-status:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.35);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-outline-light {
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: #312e81;
+}
+
+.btn-outline-light:hover {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 14px 32px rgba(129, 140, 248, 0.45);
+}
+
+/* =========================
+   ALERT
+========================= */
+.alert-secondary {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+}
