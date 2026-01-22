@@ -123,20 +123,21 @@
 
                                 <td><?= esc($app->mobile) ?></td>
 
-                                <td class="d-flex align-items-center gap-2">
-                                    <select class="form-select form-select-sm status-select" data-id="<?= $app->id ?>"
-                                        data-current="<?= $app->application_status ?>">
-                                        <?php foreach (['submitted', 'under_review', 'shortlisted', 'selected', 'rejected'] as $s): ?>
-                                            <option value="<?= $s ?>" <?= $app->application_status === $s ? 'selected' : '' ?>>
-                                                <?= ucfirst(str_replace('_', ' ', $s)) ?>
-                                            </option>
-                                        <?php endforeach ?>
-                                    </select>
-                                    <!-- Status History Button -->
-                                    <button class="btn btn-sm btn-outline-secondary status-history"
-                                        data-id="<?= $app->id ?>" title="View Status History">
-                                        🕒
-                                    </button>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <select class="form-select form-select-sm status-select"
+                                             data-id="<?= $app->id ?>" data-prev="<?= $app->application_status ?>">
+                                                <?php foreach (['submitted', 'under_review', 'shortlisted', 'selected', 'rejected'] as $s): ?>
+                                                    <option value="<?= $s ?>" <?= $app->application_status === $s ? 'selected' : '' ?>>
+                                                        <?= ucfirst(str_replace('_', ' ', $s)) ?>
+                                                    </option>
+                                                <?php endforeach ?>
+                                        </select>
+                                            <button class="btn btn-sm btn-outline-secondary status-history"
+                                                    data-id="<?= $app->id ?>">
+                                                    🕒
+                                            </button>
+                                     </div>
                                 </td>
                                 <td>
                                     <a target="_blank" href="<?= base_url('admin/resume/' . basename($app->resume_path)) ?>"
